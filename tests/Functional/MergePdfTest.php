@@ -6,7 +6,6 @@ namespace Tomsgu\PdfMerger\Test\Functional;
 
 use PHPUnit\Framework\TestCase;
 use setasign\Fpdi\Fpdi;
-use Tomsgu\PdfMerger\PagesParser;
 use Tomsgu\PdfMerger\PdfCollection;
 use Tomsgu\PdfMerger\PdfMerger;
 
@@ -36,8 +35,8 @@ class MergePdfTest extends TestCase
 
         $this->assertEquals(true, file_exists(self::TMP_FILENAME));
 
-        $finfo = finfo_open(FILEINFO_MIME_TYPE);
-        $this->assertEquals('application/pdf', finfo_file($finfo, self::TMP_FILENAME));
+        $fInfo = finfo_open(FILEINFO_MIME_TYPE);
+        $this->assertEquals('application/pdf', finfo_file($fInfo, self::TMP_FILENAME));
 
         $pagesCount = $fpdi->setSourceFile(self::TMP_FILENAME);
         $this->assertEquals(2, $pagesCount);

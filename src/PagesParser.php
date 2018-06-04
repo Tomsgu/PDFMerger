@@ -11,8 +11,9 @@ use Tomsgu\PdfMerger\Exception\InvalidArgumentException;
  */
 class PagesParser
 {
-    const ALL_PAGES = 'all';
-
+    /**
+     * @throws InvalidArgumentException
+     */
     public static function parsePages(string $pages): array
     {
         if (self::checkPages($pages) === false) {
@@ -22,10 +23,13 @@ class PagesParser
         return self::getPages($pages);
     }
 
+    /**
+     * @throws InvalidArgumentException
+     */
     private static function getPages(string $pages): array
     {
         $pagesRet = [];
-        if ($pages === self::ALL_PAGES) {
+        if ($pages === PdfFile::ALL_PAGES) {
             return $pagesRet;
         }
 
@@ -57,7 +61,7 @@ class PagesParser
     {
         $pattern = '/^(([1-9][0-9]*)|([1-9][0-9]*-[1-9][0-9]*))(,(([1-9][0-9]*)|([1-9][0-9]*-[1-9][0-9]*)))*$/';
 
-        if ($pages === self::ALL_PAGES) {
+        if ($pages === PdfFile::ALL_PAGES) {
             return true;
         }
 

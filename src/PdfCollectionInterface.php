@@ -16,7 +16,7 @@ interface PdfCollectionInterface
      * @param string $pages String representation of pages to parse.
      * @param string $orientation Can be landscape or portrait.
      */
-    public function addPdf(string $filePath, string $pages = PagesParser::ALL_PAGES, string $orientation = '');
+    public function addPdf(string $filePath, string $pages = PdfFile::ALL_PAGES, string $orientation = '');
 
     /**
      * Returns all PdfFile objects.

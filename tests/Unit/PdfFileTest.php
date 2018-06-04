@@ -9,7 +9,6 @@ use PHPUnit\Framework\TestCase;
 use Tomsgu\PdfMerger\Exception\FileNotFoundException;
 use Tomsgu\PdfMerger\Exception\InvalidArgumentException;
 use Tomsgu\PdfMerger\PdfFile;
-use Tomsgu\PdfMerger\PdfMerger;
 
 /**
  * @author Tomas Jakl <tomasjakll@gmail.com>
@@ -26,7 +25,7 @@ class PdfFileTest extends TestCase
             $file->getOrientation(PdfFile::ORIENTATION_PORTRAIT));
 
         $this->expectException(InvalidArgumentException::class);
-        $file = $this->getPdfFile([], 'fake_orientation');
+        $this->getPdfFile([], 'fake_orientation');
     }
 
     public function testGetPages()
@@ -42,14 +41,14 @@ class PdfFileTest extends TestCase
     {
         $this->expectException(FileNotFoundException::class);
 
-        $file = new PdfFile('fake_path.pdfpdf', [], '');
+        new PdfFile('fake_path.pdfpdf', [], '');
     }
 
     private function getPdfFile(array $pages = [], string $orientation = ''): PdfFile
     {
-        $file = fopen("/tmp/testfile.pdf", "w");
+        $file = fopen("/tmp/test_file.pdf", "w");
         fclose($file);
 
-        return new PdfFile("/tmp/testfile.pdf", $pages, $orientation);
+        return new PdfFile("/tmp/test_file.pdf", $pages, $orientation);
     }
 }

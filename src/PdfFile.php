@@ -12,7 +12,7 @@ use Tomsgu\PdfMerger\Exception\InvalidArgumentException;
  */
 class PdfFile
 {
-    const ALL_PAGES = [];
+    const ALL_PAGES = 'all';
 
     const ORIENTATION_LANDSCAPE  = 'landscape';
     const ORIENTATION_PORTRAIT   = 'portrait';
@@ -32,7 +32,7 @@ class PdfFile
      */
     public function __construct(
         string $filePath,
-        array $pages = self::ALL_PAGES,
+        array $pages = [],
         string $orientation = ''
     ) {
         if (file_exists($filePath) === false) {

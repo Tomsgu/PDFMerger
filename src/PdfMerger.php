@@ -33,10 +33,11 @@ class PdfMerger
 
     /**
      * @throws InvalidArgumentException
+     * @throws \setasign\Fpdi\PdfReader\PdfReaderException
      */
     public function merge(
         PdfCollectionInterface $pdfCollection,
-        string $outputPath = 'newfile.pdf',
+        string $outputPath = 'new_file.pdf',
         string $mode = self::MODE_BROWSER,
         string $orientation = PdfFile::ORIENTATION_PORTRAIT
     ): string {
@@ -62,6 +63,10 @@ class PdfMerger
         return $this->fpdi->Output($outputPath, $mode);
     }
 
+    /**
+     * @throws InvalidArgumentException
+     * @throws \setasign\Fpdi\PdfReader\PdfReaderException
+     */
     private function addPage(int $pageNumber, PdfFile $pdfFile, string $orientation = ''): void
     {
         $fileOrientation = $pdfFile->getOrientation($orientation);
