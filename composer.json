@@ -1,0 +1,41 @@
+{
+  "name": "tomsgu/pdf-merger",
+  "type": "",
+  "license": "MIT",
+  "keywords": [
+    "pdf merge"
+  ],
+  "authors": [
+    {
+      "name": "Tomas Jakl",
+      "email": "tomasjakll@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.2",
+    "setasign/fpdf": "^1.8",
+    "setasign/fpdi": "^2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7"
+  },
+  "config": {
+    "preferred-install": {
+      "*": "dist"
+    },
+    "sort-packages": true
+  },
+  "autoload": {
+    "psr-4": {
+      "Tomsgu\\PdfMerger\\": "src/"
+    },
+    "exclude-from-classmap": [
+      "/Tests/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tomsgu\\PdfMerger\\Test\\": "tests/"
+    }
+  }
+}
