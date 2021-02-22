@@ -1,6 +1,6 @@
 {
   "name": "tomsgu/pdf-merger",
-  "type": "",
+  "type": "library",
   "license": "MIT",
   "keywords": [
     "pdf merge"
