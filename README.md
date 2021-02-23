@@ -1,5 +1,5 @@
 # PDFMerger
-Simple wrapper for merging pdfs for PHP >= 7.2 based on setasign/fpdi and fpdf libraries.
+Simple wrapper for merging pdfs for PHP >= 7.2 based on setasign/fpdi and fpdf libraries, inspired by clegginabox/pdf-merger.
 
 When using a symfony framework you can use [tomsgu/pdf-merger-bundle](https://github.com/Tomsgu/PDFMergerBundle) bundle.
 # Installation
