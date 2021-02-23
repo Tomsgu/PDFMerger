@@ -16,9 +16,11 @@ class PdfFile
 
     const ORIENTATION_LANDSCAPE  = 'landscape';
     const ORIENTATION_PORTRAIT   = 'portrait';
+    const ORIENTATION_AUTO_DETECT = 'auto';
     const AVAILABLE_ORIENTATIONS = [
         self::ORIENTATION_PORTRAIT,
         self::ORIENTATION_LANDSCAPE,
+        self:: ORIENTATION_AUTO_DETECT,
         '',
     ];
 

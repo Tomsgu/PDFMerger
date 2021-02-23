@@ -12,7 +12,8 @@ composer require tomsgu/pdf-merger
 $pdfCollection = new PdfCollection();
 $pdfCollection->addPdf('filename.pdf', PdfFile::ALL_PAGES, PdfFile::ORIENTATION_PORTRAIT);
 $pdfCollection->addPdf('filename2.pdf', '1-4,9', PdfFile::ORIENTATION_LANDSCAPE);
-$pdfCollection->addPdf('filename3.pdf');
+$pdfCollection->addPdf('filename3.pdf', '1-4,9', PdfFile::ORIENTATION_AUTO_DETECT);
+$pdfCollection->addPdf('filename4.pdf');
 
 $fpdi = new Fpdi();
 $merger = new PdfMerger($fpdi);

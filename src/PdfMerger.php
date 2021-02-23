@@ -39,7 +39,7 @@ class PdfMerger
         PdfCollectionInterface $pdfCollection,
         string $outputPath = 'new_file.pdf',
         string $mode = self::MODE_BROWSER,
-        string $orientation = PdfFile::ORIENTATION_PORTRAIT
+        string $defaultOrientation = PdfFile::ORIENTATION_PORTRAIT
     ): string {
         if ($pdfCollection->hasPdfs() === false ||
             in_array($mode, self::AVAILABLE_MODES) === false) {
@@ -51,11 +51,11 @@ class PdfMerger
 
             if ($pdf->getPages() === []) {
                 for ($i = 1; $i <= $pagesCnt; $i++) {
-                    $this->addPage($i, $pdf, $orientation);
+                    $this->addPage($i, $pdf, $defaultOrientation);
                 }
             } else {
                 foreach ($pdf->getPages() as $pageNumber) {
-                    $this->addPage($pageNumber, $pdf, $orientation);
+                    $this->addPage($pageNumber, $pdf, $defaultOrientation);
                 }
             }
         }
@@ -67,9 +67,9 @@ class PdfMerger
      * @throws InvalidArgumentException
      * @throws \setasign\Fpdi\PdfReader\PdfReaderException
      */
-    private function addPage(int $pageNumber, PdfFile $pdfFile, string $orientation = ''): void
+    private function addPage(int $pageNumber, PdfFile $pdfFile, string $defaultOrientation = ''): void
     {
-        $fileOrientation = $pdfFile->getOrientation($orientation);
+        $fileOrientation = $pdfFile->getOrientation($defaultOrientation);
 
         $template = $this->fpdi->importPage($pageNumber);
         if (!$template) {
@@ -77,6 +77,13 @@ class PdfMerger
             throw InvalidArgumentException::create("Could not load a page number '$pageNumber' from '$filename' PDF. Does the page exist?");
         }
         $size = $this->fpdi->getTemplateSize($template);
+        if (strtolower($fileOrientation) === PdfFile::ORIENTATION_AUTO_DETECT){
+            if ($size['width'] > $size['height']){
+                $fileOrientation = PdfFile::ORIENTATION_LANDSCAPE;
+            }else{
+                $fileOrientation = PdfFile::ORIENTATION_PORTRAIT;
+            }
+        }
         $this->fpdi->AddPage($fileOrientation, [$size['width'], $size['height']]);
         $this->fpdi->useTemplate($template);
     }
