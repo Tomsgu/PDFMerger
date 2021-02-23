@@ -7,6 +7,7 @@ namespace Tomsgu\PdfMerger\Test\Functional;
 use PHPUnit\Framework\TestCase;
 use setasign\Fpdi\Fpdi;
 use Tomsgu\PdfMerger\PdfCollection;
+use Tomsgu\PdfMerger\PdfFile;
 use Tomsgu\PdfMerger\PdfMerger;
 
 /**
@@ -48,7 +49,7 @@ class MergePdfTest extends TestCase
     {
         $collection = new PdfCollection();
         $collection->addPdf(self::PORTRAIT_TEST_FILE);
-        $collection->addPdf(self::LANDSCAPE_TEST_FILE);
+        $collection->addPdf(self::LANDSCAPE_TEST_FILE, PdfFile::ALL_PAGES, PdfFile::ORIENTATION_AUTO_DETECT);
 
         $fpdi = new Fpdi();
         $merger = new PdfMerger($fpdi);
