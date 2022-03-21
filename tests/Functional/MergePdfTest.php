@@ -76,6 +76,7 @@ class MergePdfTest extends TestCase
         $this->assertLessThanOrEqual($size['width'], $size['height'], 'Landscape orientation wasn\'t detected.');
     }
 
+
     public function testItMergeResource()
     {
         $collection = new PdfCollection();
@@ -110,6 +111,7 @@ class MergePdfTest extends TestCase
         $this->assertLessThanOrEqual($size['width'], $size['height'], 'Landscape orientation wasn\'t detected.');
 
     }
+
 
     public function tearDown(): void
     {
