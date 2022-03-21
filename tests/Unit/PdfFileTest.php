@@ -44,6 +44,14 @@ class PdfFileTest extends TestCase
         new PdfFile('fake_path.pdfpdf', [], '');
     }
 
+    public function testItAcceptsResource()
+    {
+        $resource = fopen('./tests/Data/landscape.pdf', 'r');
+        $pdfFile = new PdfFile($resource, [], '');
+
+        $this->assertIsResource($pdfFile->getPath());
+    }
+
     private function getPdfFile(array $pages = [], string $orientation = ''): PdfFile
     {
         $file = fopen("/tmp/test_file.pdf", "w");

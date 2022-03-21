@@ -21,10 +21,11 @@ class PdfCollection implements PdfCollectionInterface
     }
 
     /**
+     * @var string|resource $filePath
      * @throws FileNotFoundException
      * @throws InvalidArgumentException
      */
-    public function addPdf(string $filePath, string $pages = PdfFile::ALL_PAGES, string $orientation = '')
+    public function addPdf($filePath, string $pages = PdfFile::ALL_PAGES, string $orientation = '')
     {
         $parsedPages = PagesParser::parsePages($pages);
         $pdfFile = new PdfFile($filePath, $parsedPages, $orientation);
