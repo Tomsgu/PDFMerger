@@ -19,7 +19,7 @@ class MergePdfTest extends TestCase
     const LANDSCAPE_TEST_FILE = './tests/Data/landscape.pdf';
     const PORTRAIT_TEST_FILE = './tests/Data/portrait.pdf';
 
-    public function setUp()
+    public function setUp(): void
     {
         if ( file_exists(self::TMP_FILENAME) === true ){
             unlink(self::TMP_FILENAME);
@@ -76,7 +76,7 @@ class MergePdfTest extends TestCase
         $this->assertLessThanOrEqual($size['width'], $size['height'], 'Landscape orientation wasn\'t detected.');
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         unlink(self::TMP_FILENAME);
     }
