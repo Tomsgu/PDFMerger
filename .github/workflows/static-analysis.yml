@@ -1,4 +1,4 @@
-name: "Continuous Integration"
+name: "Static analysis"
 
 on:
     pull_request:
