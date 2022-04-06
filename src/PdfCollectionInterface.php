@@ -23,7 +23,7 @@ interface PdfCollectionInterface
     /**
      * Returns all PdfFile objects.
      *
-     * @return array|PdfFile[]
+     * @return PdfFile[]
      */
     public function getPdfs() : array;
 

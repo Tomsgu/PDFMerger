@@ -30,7 +30,7 @@ class PdfFile
     private $path;
 
     /**
-     * @var array|int[]
+     * @var int[]
      */
     private $pages;
 
@@ -44,7 +44,7 @@ class PdfFile
      * @throws InvalidArgumentException
      *
      * @param string|resource $file
-     * @param array|int[] $pages
+     * @param int[] $pages
      */
     public function __construct(
         $file,
@@ -64,7 +64,7 @@ class PdfFile
     }
 
     /**
-     * @return array|int[]
+     * @return int[]
      */
     public function getPages(): array
     {

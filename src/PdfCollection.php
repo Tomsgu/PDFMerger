@@ -34,7 +34,7 @@ class PdfCollection implements PdfCollectionInterface
     }
 
     /**
-     * @return array|PdfFile[]
+     * @return PdfFile[]
      */
     public function getPdfs() : array
     {

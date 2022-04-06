@@ -13,7 +13,7 @@ class PagesParser
 {
     /**
      * @throws InvalidArgumentException
-     * @return array|int[]
+     * @return int[]
      */
     public static function parsePages(string $pages): array
     {
@@ -26,7 +26,7 @@ class PagesParser
 
     /**
      * @throws InvalidArgumentException
-     * @return array|int[]
+     * @return int[]
      */
     private static function getPages(string $pages): array
     {
