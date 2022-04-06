@@ -9,6 +9,9 @@ namespace Tomsgu\PdfMerger\Exception;
  */
 class FileNotFoundException extends \Exception implements PdfMergerExceptionInterface
 {
+    /**
+     * @return self
+     */
     public static function create(string $message)
     {
         return new self($message);
