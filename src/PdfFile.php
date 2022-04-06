@@ -24,14 +24,27 @@ class PdfFile
         '',
     ];
 
+    /**
+     * @var resource|string
+     */
     private $path;
+
+    /**
+     * @var array|int[]
+     */
     private $pages;
+
+    /**
+     * @var string
+     */
     private $orientation;
 
     /**
      * @throws FileNotFoundException
      * @throws InvalidArgumentException
-     * @var string|resource $file
+     *
+     * @param string|resource $file
+     * @param array|int[] $pages
      */
     public function __construct(
         $file,
@@ -50,6 +63,9 @@ class PdfFile
         $this->orientation = $orientation;
     }
 
+    /**
+     * @return array|int[]
+     */
     public function getPages(): array
     {
         return $this->pages;

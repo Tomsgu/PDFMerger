@@ -21,7 +21,6 @@ class PdfCollection implements PdfCollectionInterface
     }
 
     /**
-     * @var string|resource $filePath
      * @throws FileNotFoundException
      * @throws InvalidArgumentException
      */
