@@ -15,6 +15,10 @@ $pdfCollection->addPdf('filename2.pdf', '1-4,9', PdfFile::ORIENTATION_LANDSCAPE)
 $pdfCollection->addPdf('filename3.pdf', '1-4,9', PdfFile::ORIENTATION_AUTO_DETECT);
 $pdfCollection->addPdf('filename4.pdf');
 
+// You can also pass a resource
+$resource = fopen('filename4.pdf', 'r');
+$pdfCollection->addPdf($resource);
+
 $fpdi = new Fpdi();
 $merger = new PdfMerger($fpdi);
 /**
