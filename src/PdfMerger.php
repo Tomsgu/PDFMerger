@@ -24,6 +24,9 @@ class PdfMerger
         self::MODE_STRING,
     ];
 
+    /**
+     * @var Fpdi
+     */
     private $fpdi;
 
     public function __construct(Fpdi $fpdi)
@@ -76,7 +79,13 @@ class PdfMerger
             $filename = $pdfFile->getPath();
             throw InvalidArgumentException::create("Could not load a page number '$pageNumber' from '$filename' PDF. Does the page exist?");
         }
+        /**
+         * @var array{width: int, height: int, orientation: string}|false $size
+         */
         $size = $this->fpdi->getTemplateSize($template);
+        if ($size === false){
+            throw InvalidArgumentException::create("Could not get size of the given page '$pageNumber'.");
+        }
         if (strtolower($fileOrientation) === PdfFile::ORIENTATION_AUTO_DETECT){
             if ($size['width'] > $size['height']){
                 $fileOrientation = PdfFile::ORIENTATION_LANDSCAPE;
