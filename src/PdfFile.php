@@ -14,8 +14,8 @@ class PdfFile
 {
     const ALL_PAGES = 'all';
 
-    const ORIENTATION_LANDSCAPE  = 'landscape';
-    const ORIENTATION_PORTRAIT   = 'portrait';
+    const ORIENTATION_LANDSCAPE = 'landscape';
+    const ORIENTATION_PORTRAIT = 'portrait';
     const ORIENTATION_AUTO_DETECT = 'auto';
     const AVAILABLE_ORIENTATIONS = [
         self::ORIENTATION_PORTRAIT,
@@ -31,20 +31,21 @@ class PdfFile
     /**
      * @throws FileNotFoundException
      * @throws InvalidArgumentException
+     * @var string|resource $file
      */
     public function __construct(
-        string $filePath,
+        $file,
         array $pages = [],
         string $orientation = ''
     ) {
-        if (file_exists($filePath) === false) {
+        if (is_string($file) && file_exists($file) === false) {
             throw new FileNotFoundException();
         }
         if (in_array($orientation, self::AVAILABLE_ORIENTATIONS) === false) {
             throw new InvalidArgumentException();
         }
 
-        $this->path = $filePath;
+        $this->path = $file;
         $this->pages = $pages;
         $this->orientation = $orientation;
     }
@@ -54,7 +55,10 @@ class PdfFile
         return $this->pages;
     }
 
-    public function getPath(): string
+    /**
+     * @return string|resource
+     */
+    public function getPath()
     {
         return $this->path;
     }
