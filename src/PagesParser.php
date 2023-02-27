@@ -18,7 +18,7 @@ class PagesParser
     public static function parsePages(string $pages): array
     {
         if (self::checkPages($pages) === false) {
-            throw InvalidArgumentException::create("An invalid argument (${pages}) passed.");
+            throw InvalidArgumentException::create("An invalid argument ({$pages}) passed.");
         }
 
         return self::getPages($pages);
@@ -47,7 +47,7 @@ class PagesParser
                 $endPage = intval($range[1]);
 
                 if ($startPage >= $endPage) {
-                    throw InvalidArgumentException::create("Start page ${startPage} is greater or equal to end page ${endPage}.");
+                    throw InvalidArgumentException::create("Start page {$startPage} is greater or equal to end page {$endPage}.");
                 }
 
                 for (; $startPage <= $endPage; $startPage++) {
