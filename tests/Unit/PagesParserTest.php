@@ -47,7 +47,7 @@ class PagesParserTest extends TestCase
         $pagesParser->parsePages($invalidValue);
     }
 
-    public function validArgumentProvider()
+    public static function validArgumentProvider()
     {
         return [
             ['all', []],
@@ -63,7 +63,7 @@ class PagesParserTest extends TestCase
         ];
     }
 
-    public function invalidPagesRangeProvider()
+    public static function invalidPagesRangeProvider()
     {
         return [
             ['2-2'],
@@ -73,7 +73,7 @@ class PagesParserTest extends TestCase
         ];
     }
 
-    public function invalidArgumentProvider()
+    public static function invalidArgumentProvider()
     {
         return [
             ['0'],
