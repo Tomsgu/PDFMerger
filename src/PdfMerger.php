@@ -6,6 +6,7 @@ namespace Tomsgu\PdfMerger;
 
 use setasign\Fpdi\Fpdi;
 use Tomsgu\PdfMerger\Exception\InvalidArgumentException;
+use setasign\Fpdi\PdfReader\PageBoundaries;
 
 /**
  * @author Tomas Jakl <tomasjakll@gmail.com>
@@ -74,7 +75,7 @@ class PdfMerger
     {
         $fileOrientation = $pdfFile->getOrientation($defaultOrientation);
 
-        $template = $this->fpdi->importPage($pageNumber);
+        $template = $this->fpdi->importPage($pageNumber, PageBoundaries::CROP_BOX, true, true);
         if (!$template) {
             $filename = $pdfFile->getPath();
             throw InvalidArgumentException::create("Could not load a page number '$pageNumber' from '$filename' PDF. Does the page exist?");
