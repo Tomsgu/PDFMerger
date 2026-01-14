@@ -1,42 +1,42 @@
 {
-  "name": "tomsgu/pdf-merger",
-  "type": "library",
-  "license": "MIT",
-  "keywords": [
-    "pdf merge"
-  ],
-  "authors": [
-    {
-      "name": "Tomas Jakl",
-      "email": "tomasjakll@gmail.com"
-    }
-  ],
-  "require": {
-    "php": "^7.2 || ^8.0",
-    "setasign/fpdf": "^1.8",
-    "setasign/fpdi": "^2.0"
-  },
-  "require-dev": {
-    "phpstan/phpstan": "^1.5",
-    "phpunit/phpunit": "^8"
-  },
-  "config": {
-    "preferred-install": {
-      "*": "dist"
+    "name": "tomsgu/pdf-merger",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "pdf merge"
+    ],
+    "authors": [
+        {
+            "name": "Tomas Jakl",
+            "email": "tomasjakll@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2 || ^8.0",
+        "setasign/fpdf": "^1.8",
+        "setasign/fpdi": "^2.6.4"
     },
-    "sort-packages": true
-  },
-  "autoload": {
-    "psr-4": {
-      "Tomsgu\\PdfMerger\\": "src/"
+    "require-dev": {
+        "phpstan/phpstan": "^1.5",
+        "phpunit/phpunit": "^8"
     },
-    "exclude-from-classmap": [
-      "/Tests/"
-    ]
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Tomsgu\\PdfMerger\\Test\\": "tests/"
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Tomsgu\\PdfMerger\\": "src/"
+        },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tomsgu\\PdfMerger\\Test\\": "tests/"
+        }
     }
-  }
 }
